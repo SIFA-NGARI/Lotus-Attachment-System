@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ImportController;
+use App\Http\Controllers\FileHandling;
 use App\Http\Controllers\SupervisorReg;
 use App\Http\Controllers\SiteAuthController;
 use Illuminate\Support\Facades\Auth;
@@ -50,6 +51,12 @@ Route::post('/sup_reg', [SupervisorReg::class, 'store'])->name('sup_reg');
 Route::get('site-register', [SiteAuthController::class, 'siteRegister']);
 Route::post('site-register', [SiteAuthController::class, 'siteRegisterPost']);
 
+Route::get('submissionDetails', [FileHandling::class, 'submissionDetails'])->name('submissionDetails');
+Route::post('submit_assignment', [FileHandling::class, 'submitAssignment'])->name('submit_assignment');
+Route::post('delete_assignment', [FileHandling::class, 'deleteAssignment'])->name('delete_assignment');
+Route::post('edit_assignment', [FileHandling::class, 'editAssignment'])->name('edit_assignment');
+Route::get('/viewAssignmentSubmission/{material_id}', [FileHandling::class, 'viewAssignmentSubmission'])->name('viewAssignmentSubmission');
+Route::get('/Lec_view_submissions', [FileHandling::class, 'LecViewSubmissions'])->name('Lec_view_submissions');
 
 require __DIR__ . '/auth.php';
 
