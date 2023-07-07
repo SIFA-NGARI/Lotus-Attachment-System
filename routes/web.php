@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ImportController;
 use App\Http\Controllers\FileHandling;
+use App\Http\Controllers\GradeHandler;
 use App\Http\Controllers\SupervisorReg;
 use App\Http\Controllers\SiteAuthController;
 use Illuminate\Support\Facades\Auth;
@@ -51,12 +52,34 @@ Route::post('/sup_reg', [SupervisorReg::class, 'store'])->name('sup_reg');
 Route::get('site-register', [SiteAuthController::class, 'siteRegister']);
 Route::post('site-register', [SiteAuthController::class, 'siteRegisterPost']);
 
+
 Route::get('submissionDetails', [FileHandling::class, 'submissionDetails'])->name('submissionDetails');
 Route::post('submit_assignment', [FileHandling::class, 'submitAssignment'])->name('submit_assignment');
 Route::post('delete_assignment', [FileHandling::class, 'deleteAssignment'])->name('delete_assignment');
 Route::post('edit_assignment', [FileHandling::class, 'editAssignment'])->name('edit_assignment');
 Route::get('/viewAssignmentSubmission/{material_id}', [FileHandling::class, 'viewAssignmentSubmission'])->name('viewAssignmentSubmission');
 Route::get('/Lec_view_submissions', [FileHandling::class, 'LecViewSubmissions'])->name('Lec_view_submissions');
+
+Route::post('create_assessment', [GradeHandler::class, 'createAssessment'])->name('create_assessment');
+Route::post('fetch_assessment_details', [GradeHandler::class, 'fetchAssessmentDetails'])->name('fetch_assessment_details');
+Route::post('update_student_results', [GradeHandler::class, 'updateStudentResults'])->name('update_student_results');
+Route::post('edit_student_results', [GradeHandler::class, 'editStudentResults'])->name('edit_student_results');
+Route::post('edit_student_results2', [GradeHandler::class, 'editStudentResults2'])->name('edit_student_results2');
+
+Route::get('update_results', function () {
+    $data = DB::table('assessments')->where('supervisor_id', '=', Auth::user()->id)->get();
+    $data4 = DB::table('users')
+        ->join('supervisor_allocations', 'supervisor_allocations.student_id', '=', 'users.id')
+        ->select('users.id', 'users.name')->get();
+    return view('supervisor_update_results')->with('data', $data)->with('data4', $data4);
+})->name('update_results');
+Route::get('/view_results', function () {
+    $data4 = DB::table('users')
+        ->join('supervisor_allocations', 'supervisor_allocations.student_id', '=', 'users.id')
+        ->select('users.id', 'users.name')->get();
+    $data6 = DB::table('assessments')->where('assessments.supervisor_id', '=', Auth::user()->id)->select('name')->get();
+    return view('supervisor_view_results')->with('data4', $data4)->with('data6', $data6);
+})->name('view_results');
 
 require __DIR__ . '/auth.php';
 
