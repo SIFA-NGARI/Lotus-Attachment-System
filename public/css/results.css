@@ -192,7 +192,7 @@ button:hover {
 
 .snip1168 a {
   padding: 0.5em 0;
-  color: rgb(150, 5, 5);
+  color: #8c6653;
   position: relative;
   letter-spacing: 1px;
   text-decoration: none;
@@ -211,7 +211,7 @@ button:hover {
   height: 3px;
   width: 0%;
   content: "";
-  background-color: rgb(150, 5, 5);
+  background-color: #8c6653;
 }
 
 .snip1168 a:after {
