@@ -129,4 +129,28 @@ class AttachmentInitialisation extends Controller
         return view('attachment_initialisation/view_reject_comments2')->with('data', $data);
 
     }
+    public function editAssignmentPage($student_id){
+        $data1=DB::table('users')->where('id','=',$student_id)->get();
+        $data2=DB::table('supervisor_allocations')->where('student_id','=',$student_id)->get();
+        $data= DB::table('users')->where('role','=','1')->get();
+        return view('supervisor_assignment/edit_assignment')->with('data', $data)->with('data1', $data1)->with('data2', $data2);
+    }
+    public function editAssignment(Request $request){
+        $allocation_id = $request->input('allocation_id');
+        $supervisor_id= $request->input('supervisor_id');
+        DB::table('supervisor_allocations')
+        ->where('allocation_id', '=', $allocation_id)
+        ->update([
+            'supervisor_id' => $supervisor_id,
+        ]);
+        return redirect('admin_allocation');
+
+    }
+
+    public function nullifyAssignment($student_id){
+        DB::table('supervisor_allocations')
+        ->where('student_id', '=', $student_id)
+        ->delete();
+        return redirect('admin_allocation');
+    }
 }

@@ -18,6 +18,7 @@ return new class extends Migration
 
             $table->foreign('student_id')->references('id')->on('users');
             $table->foreign('supervisor_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

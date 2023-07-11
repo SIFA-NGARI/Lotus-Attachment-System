@@ -46,6 +46,7 @@ Route::post('/import_parse', [ImportController::class, 'parseImport'])->name('im
 Route::post('/import_process', [ImportController::class, 'processImport'])->name('import_process');
 
 Route::get('/admin_reg_supp', [AdminRegSupervisor::class, 'index'])->name('SupervisorRegistration');
+Route::get('/admin_allocation', [AdminRegSupervisor::class, 'adminAllocations'])->name('AdminAllocations');
 
 Route::get('/fetch_form', function () {
     return view('reg_sup');
@@ -106,6 +107,15 @@ Route::get('student_view_attachments', [AttachmentInitialisation::class, 'studen
 Route::get('student_view_organization_details/{application_id}', [AttachmentInitialisation::class, 'studentViewOrganizationDetails'])->name('student_view_organization_details');
 Route::get('student_view_attachment_details/{application_id}', [AttachmentInitialisation::class, 'studentViewAttachmentDetails'])->name('student_view_attachment_details');
 Route::get('student_view_reject_comments/{application_id}', [AttachmentInitialisation::class, 'studentViewRejectComments'])->name('student_view_reject_comments');
+
+Route::post('/import_parse2', [ImportController::class, 'parseImport2'])->name('import_parse2');
+Route::post('/import_process2', [ImportController::class, 'processImport2'])->name('import_process2');
+
+Route::get('edit_assignment_page/{student_id}', [AttachmentInitialisation::class, 'editAssignmentPage'])->name('edit_assignment_page');
+Route::post('edit_assignment', [AttachmentInitialisation::class, 'editAssignment'])->name('edit_assignment');
+Route::get('nullify_assignment/{student_id}', [AttachmentInitialisation::class, 'nullifyAssignment'])->name('nullify_assignment');
+
+
 
 require __DIR__ . '/auth.php';
 
