@@ -190,6 +190,9 @@ return [
         'name',
         'email',
         'phone_number',
-        'password',
+    ],
+    'db_fields2' => [
+        'student_id',
+        'supervisor_id',
     ]
 ];

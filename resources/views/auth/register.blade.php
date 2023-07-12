@@ -43,10 +43,10 @@
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
-        <a tabindex="0" class="btn btn-lg " role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Password Guidelines" data-bs-content="
+        <!-- <a tabindex="0" class="btn btn-lg " role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Password Guidelines" data-bs-content="
 English uppercase letters (A through Z). English lower case letters (a through z). Numbers (0 through 9). Special characters and punctuation symbols (Example: _, -. Not more than 8 characters">
             <i class=" bi-info-circle text-blue-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"></i>
-        </a>
+        </a> -->
 
         <div class="mt-2 justify-center">
             <div class=" justify-center">
