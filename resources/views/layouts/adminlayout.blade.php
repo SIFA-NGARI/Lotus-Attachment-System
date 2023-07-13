@@ -8,7 +8,7 @@
 
     <title>Lotus Attachment</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-   <!-- icons -->
+    <!-- icons -->
     <link rel="icon" type="image/x-icon" href="img/lotus.svg">
 
     <!-- Fonts -->
@@ -21,7 +21,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">  
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -187,6 +187,7 @@
         </nav>
         <!-- /.navbar -->
 
+
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
@@ -224,33 +225,33 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item">
+                        <li class="nav-item">
                             <a href="./index2.html" class="nav-link active">
-                            <i class="bi-briefcase nav-icon"></i>
+                                <i class="bi-briefcase nav-icon"></i>
                                 <p>Application </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="./index2.html" class="nav-link">
-                            <i class="bi-paperclip nav-icon"></i>
+                                <i class="bi-paperclip nav-icon"></i>
                                 <p>Attachment details</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="./index2.html" class="nav-link">
-                            <i class="bi-journal-bookmark nav-icon"></i>
+                                <i class="bi-journal-bookmark nav-icon"></i>
                                 <p>Logbook</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="./index3.html" class="nav-link">
-                            <i class="bi-pencil-square nav-icon"></i>
+                                <i class="bi-pencil-square nav-icon"></i>
                                 <p>Report</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/widgets.html" class="nav-link">
-                            <i class="bi-calendar3 nav-icon"></i>
+                                <i class="bi-calendar3 nav-icon"></i>
                                 <p>
                                     Calendar
                                     <!--  <span class="right badge badge-danger">New</span>-->
@@ -259,7 +260,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="pages/widgets.html" class="nav-link">
-                            <i class="bi-map nav-icon"></i>
+                                <i class="bi-map nav-icon"></i>
                                 <p>
                                     Maps
                                     <!--  <span class="right badge badge-danger">New</span>-->
@@ -269,7 +270,7 @@
 
                         <li class="nav-item">
                             <a href="pages/widgets.html" class="nav-link">
-                            <i class="bi-chat-dots nav-icon"></i>
+                                <i class="bi-chat-dots nav-icon"></i>
                                 <p>
                                     Chat
                                     <!--  <span class="right badge badge-danger">New</span>-->
@@ -280,7 +281,7 @@
                         <li class="nav-header">USER</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link ">
-                            <i class="bi-person-x nav-icon"></i>
+                                <i class="bi-person-x nav-icon"></i>
                                 <p class="text">Logout</p>
                             </a>
                         </li>
@@ -292,29 +293,27 @@
             <!-- /.sidebar -->
         </aside>
 
-
-        
+        <div class="content-wrapper">
             <!-- /.content -->
             @yield('content')
-
-
-
-
         </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2023 <a href="#">Lotus Attachment</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 1.0
-            </div>
-        </footer>
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2023 <a href="#">Lotus Attachment</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 1.0
+        </div>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
 
