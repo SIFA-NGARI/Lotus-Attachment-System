@@ -31,5 +31,61 @@ this module will be used for an overall view of the entire system by a super adm
 This module will integrate the Google Calendar API. This will improve the efficiency of planning for events such as site visits. 
 
 ### ix.	**Maps** 
-This module will integrate the Google Maps API. The aim of this module will be to improve the site visit experience for the supervisor user as they locate the student users for on-site visits and assessments. 
+This module will integrate the Google Maps API. This module will aim to improve the site visit experience for the supervisor user as they locate the student users for on-site visits and assessments. 
+
+## Installation 
+```
+# clone the repo
+$ git clone https://github.com/SIFA-NGARI/Lotus-Attachment-System.git
+
+# Go into the app's directory
+$ cd my-project
+
+# install the app's dependencies
+$ composer install
+
+# install the app's dependencies
+$ npm install
+```
+## Database Configuration 
+If you choose to use MySQL, copy the file ".env.example", and change its name to ".env". Then in the file ".env" complete this database configuration:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+## Next Steps 
+```
+# in your app directory
+# generate laravel APP_KEY
+$ php artisan key:generate
+
+# run database migration and seed
+$ php artisan migrate:refresh --seed
+
+# generate mixing
+$ npm run dev
+```
+## Usage 
+```
+# start the local server
+$ php artisan serve
+```
+Open your browser with the address: localhost:8000 
+> Register a user under the email domain [@strathmore.edu] and verify the email before logging in
+
+## Creators 
+### Olive Menorah 
+https://github.com/MenorahOlive
+
+### Sifa Ngari 
+https://github.com/SIFA-NGARI
+
+## Copyright and Licenses 
+copyright 2023 Lotus Attachments. Code released under Strathmore University.
+
+
 
