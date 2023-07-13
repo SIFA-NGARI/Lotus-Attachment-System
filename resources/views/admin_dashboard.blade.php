@@ -31,10 +31,10 @@
                                 <div class="inner">
                                     <h3>5</h3>
 
-                                    <p>Days left</p>
+                                    <p>Administrators</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fas fa-calendar-day fa-fw"></i>
+                                    <i class="fas fa-house fa-fw"></i>
 
                                 </div>
                                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
@@ -45,12 +45,12 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>1</h3>
+                                    <h3>30</h3>
 
-                                    <p>week left</p>
+                                    <p>Supervisors</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fas fa-calendar-week fa-fw"></i>
+                                    <i class="fas fa-user fa-fw"></i>
 
                                 </div>
                                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
@@ -64,7 +64,7 @@
                                 <div class="inner">
                                     <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                                    <p>Overall grade</p>
+                                    <p>Students</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-graduation-cap fa-fw"></i>
@@ -78,9 +78,9 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>0</h3>
+                                    <h3>130</h3>
 
-                                    <p>completed attachments</p>
+                                    <p>Applications</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-paperclip fa-fw"></i>

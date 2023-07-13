@@ -228,27 +228,10 @@
                         <li class="nav-item">
                             <a href="./index2.html" class="nav-link active">
                                 <i class="bi-briefcase nav-icon"></i>
-                                <p>Application </p>
+                                <p>Attachments</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
-                                <i class="bi-paperclip nav-icon"></i>
-                                <p>Attachment details</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
-                                <i class="bi-journal-bookmark nav-icon"></i>
-                                <p>Logbook</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
-                                <i class="bi-pencil-square nav-icon"></i>
-                                <p>Report</p>
-                            </a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a href="pages/widgets.html" class="nav-link">
                                 <i class="bi-calendar3 nav-icon"></i>
