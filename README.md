@@ -75,7 +75,7 @@ $ npm run dev
 $ php artisan serve
 ```
 Open your browser with the address: localhost:8000 
-> Register a user under the email domain [@strathmore.edu] and verify the email before logging in
+> Register a user under the email domain [@strathmore.edu](www.strathmore.edu) and verify the email before logging in
 
 ## Creators 
 ### Olive Menorah 
