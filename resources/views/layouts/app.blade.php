@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--  <meta name="csrf-token" content="{{ csrf_token() }}">-->
+    <!--  <meta name="csrf-token" content="{{ csrf_token() }}">-->
 
     <title>Lotus Attachment</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
+    <link rel="icon" type="image/x-icon" href="img/lotus.svg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -20,7 +20,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">  
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -38,6 +38,8 @@
     <!-- summernote -->
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -48,7 +50,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="img/lotus.jpeg" alt="AdminLTELogo" height="60" width="60">
+            <img class="animation__shake" src="img/lotusblack.svg" alt="LotusLogo" height="60" width="60">
         </div>
 
         <!-- Navbar -->
@@ -193,7 +195,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="img/lotus.jpeg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="img/lotus.svg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Lotus Attachment</span>
             </a>
 
@@ -209,7 +211,7 @@
                     </div>
                 </div>
 
-                <!-- SidebarSearch Form -->
+                <!-- SidebarSearch Form 
                 <div class="form-inline">
                     <div class="input-group" data-widget="sidebar-search">
                         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
@@ -219,86 +221,81 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-paperclip"></i>
-                                <p>
-                                    Attachment details
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+               <li class="nav-item">
+                            <a href="./index2.html" class="nav-link active">
+                            <i class="bi-briefcase nav-icon"></i>
+                                <p>Application </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="./index.html" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Application</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Logbook</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index3.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Report</p>
-                                    </a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index2.html" class="nav-link">
+                            <i class="bi-paperclip nav-icon"></i>
+                                <p>Attachment details</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index2.html" class="nav-link">
+                            <i class="bi-journal-bookmark nav-icon"></i>
+                                <p>Logbook</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index3.html" class="nav-link">
+                            <i class="bi-pencil-square nav-icon"></i>
+                                <p>Report</p>
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/widgets.html" class="nav-link">
-                                <i class="nav-icon far fa-calendar-alt"></i>
+                            <i class="bi-calendar3 nav-icon"></i>
                                 <p>
                                     Calendar
-                                  <!--  <span class="right badge badge-danger">New</span>-->
+                                    <!--  <span class="right badge badge-danger">New</span>-->
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/widgets.html" class="nav-link">
-                            <i class="nav-icon far fa-map"></i>
+                            <i class="bi-map nav-icon"></i>
                                 <p>
                                     Maps
-                                  <!--  <span class="right badge badge-danger">New</span>-->
+                                    <!--  <span class="right badge badge-danger">New</span>-->
                                 </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a href="pages/widgets.html" class="nav-link">
-                            <i class="nav-icon far fa-comments"></i>
+                            <i class="bi-chat-dots nav-icon"></i>
                                 <p>
                                     Chat
-                                  <!--  <span class="right badge badge-danger">New</span>-->
+                                    <!--  <span class="right badge badge-danger">New</span>-->
                                 </p>
                             </a>
                         </li>
-                     
+
                         <li class="nav-header">USER</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-user"></i>
+                            <i class="bi-person-x nav-icon"></i>
                                 <p class="text">Logout</p>
                             </a>
                         </li>
-                   
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
         </aside>
-        
+
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -334,57 +331,61 @@
                                     <p>Days left</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-calendar"></i>
+                                    <i class="fas fa-calendar-day fa-fw"></i>
+
                                 </div>
                                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
+
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3>1</h3>
+
+                                    <p>week left</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-calendar-week fa-fw"></i>
+
+                                </div>
+                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
                         <!-- ./col -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-success">
+                            <div class="small-box bg-info">
                                 <div class="inner">
                                     <h3>53<sup style="font-size: 20px">%</sup></h3>
 
                                     <p>Overall grade</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
+                                    <i class="fas fa-graduation-cap fa-fw"></i>
                                 </div>
                                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
+
                         <!-- ./col -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-warning">
+                            <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>44</h3>
+                                    <h3>0</h3>
 
-                                    <p></p>
+                                    <p>completed attachments</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-paperclip fa-fw"></i>
+
                                 </div>
                                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-danger">
-                                <div class="inner">
-                                    <h3>65</h3>
-
-                                    <p>Unique Visitors</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
                     </div>
                     <!-- /.row -->
                     <!-- Main row -->
