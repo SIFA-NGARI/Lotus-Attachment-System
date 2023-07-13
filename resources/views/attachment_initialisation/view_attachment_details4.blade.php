@@ -78,46 +78,37 @@
         h2 {
             color: #88654e;
         }
-
-       
     </style>
-    <title>View Organisation Details</title>
+    <title>View Attachment Details</title>
 </head>
 
 <body>
     <div class="overlay">
         <div class="wrapper">
-            <a id="close" href="{{route('student_view_attachments')}}"><i class="las la-times"></i></a>
+            <a id="close" href="{{route('lec_view_attachments')}}"><i class="las la-times"></i></a>
             <div class="content">
                 @foreach($data as $data)
                 <div class="container">
-                    <h2>Organisation Name:</h2>
-                    <hr>
-                    <h3>{{$data->org_name}}</h3>
-                    <br />
-                    <h2>Organisation Branch:</h2>
-                    <hr>
-                    <h3>{{$data->branch}}</h3>
-                    <br />
-                    <h2>Physical Address:</h2>
-                    <hr>
-                    <h3>{{$data->address}}</h3>
-                    <br />
-                    <h2>Country:</h2>
-                    <hr>
-                    <h3>{{$data->country}}</h3>
-                    <br />
-                    <h2>State:</h2>
-                    <hr>
-                    <h3>{{$data->state}}</h3>
-                    <br />
-                    <h2>City:</h2>
-                    <hr>
-                    <h3>{{$data->city}}</h3>
-                    <br />
-                    <h2>Description:</h2>
+                    <h2>Organisation Details:</h2>
                     <hr>
                     <h3>{{$data->description}}</h3>
+                    <br />
+                    <h2>Attachment Dates:</h2>
+                    <hr>
+                    <h3>{{$data->date}}</h3>
+                    <br />
+                    <h2>Hours Per Week:</h2>
+                    <hr>
+                    <h3>{{$data->hours}}</h3>
+                    <br />
+                    <h2>Anticipated Activities:</h2>
+                    <hr>
+                    <h3>{{$data->activities}}</h3>
+                    <br />
+                    <h2>Anticipated Skills:</h2>
+                    <hr>
+                    <h3>{{$data->skills}}</h3>
+
                 </div>
                 @endforeach
             </div>

@@ -93,8 +93,7 @@ Route::post('api/fetch-cities',[DropDownController::class,'fatchCity']);
 Route::post('/student_application', [AttachmentInitialisation::class, 'createApplication'])->name('student_application');
 
 Route::get('view_applications', [AttachmentInitialisation::class, 'viewApplications'])->name('view_applications');
-Route::get('view_organization_details/{student_id}', [AttachmentInitialisation::class, 'viewOrganizationDetails'])->name('view_organization_details');
-Route::get('view_attachment_details/{student_id}', [AttachmentInitialisation::class, 'viewAttachmentDetails'])->name('view_attachment_details');
+Route::get('view_attachment_details/{application_id}', [AttachmentInitialisation::class, 'viewAttachmentDetails'])->name('view_attachment_details');
 Route::get('accept_attachment/{application_id}', [AttachmentInitialisation::class, 'acceptAttachment'])->name('accept_attachment');
 Route::post('reject_attachment', [AttachmentInitialisation::class, 'rejectAttachment'])->name('reject_attachment');
 Route::get('reject_comments/{application_id}', [AttachmentInitialisation::class, 'rejectComments'])->name('reject_comments');
@@ -104,7 +103,6 @@ Route::get('rejected_applications', [AttachmentInitialisation::class, 'rejectedA
 Route::get('view_reject_comments/{application_id}', [AttachmentInitialisation::class, 'viewRejectComments'])->name('view_reject_comments');
 Route::get('student_view_attachments', [AttachmentInitialisation::class, 'studentViewAttachments'])->name('student_view_attachments');
 
-Route::get('student_view_organization_details/{application_id}', [AttachmentInitialisation::class, 'studentViewOrganizationDetails'])->name('student_view_organization_details');
 Route::get('student_view_attachment_details/{application_id}', [AttachmentInitialisation::class, 'studentViewAttachmentDetails'])->name('student_view_attachment_details');
 Route::get('student_view_reject_comments/{application_id}', [AttachmentInitialisation::class, 'studentViewRejectComments'])->name('student_view_reject_comments');
 
@@ -114,6 +112,11 @@ Route::post('/import_process2', [ImportController::class, 'processImport2'])->na
 Route::get('edit_assignment_page/{student_id}', [AttachmentInitialisation::class, 'editAssignmentPage'])->name('edit_assignment_page');
 Route::post('edit_assignment', [AttachmentInitialisation::class, 'editAssignment'])->name('edit_assignment');
 Route::get('nullify_assignment/{student_id}', [AttachmentInitialisation::class, 'nullifyAssignment'])->name('nullify_assignment');
+
+Route::get('lec_view_attachments', [AttachmentInitialisation::class, 'lecViewAttachments'])->name('lec_view_attachments');
+Route::get('student_view_accepted_attachments', [AttachmentInitialisation::class, 'studentViewAcceptedAttachments'])->name('student_view_accepted_attachments');
+Route::get('student_view_attachment_details2/{application_id}', [AttachmentInitialisation::class, 'viewAttachmentDetails2'])->name('student_view_attachment_details2');
+Route::get('view_attachment_details_lec/{application_id}', [AttachmentInitialisation::class, 'viewAttachmentDetails3'])->name('view_attachment_details_lec');
 
 
 
