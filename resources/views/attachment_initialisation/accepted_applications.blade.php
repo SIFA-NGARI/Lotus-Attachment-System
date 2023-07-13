@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.bootstrap.min.css">
 
+    
+
     <link rel="stylesheet" href="{{ URL::asset('css/results.css') }}">
 
     <style>
-           body {
+        body {
             margin: 2em;
         }
 
@@ -43,12 +45,14 @@
             letter-spacing: 1px;
             text-decoration: none;
         }
+
         #this1 {
-           
+
             color: #8c6653;
-          
+
         }
-        #this1:hover{
+
+        #this1:hover {
             color: black;
         }
 
@@ -91,11 +95,12 @@
             max-width: 100%;
         }
 
-        #status{
+        #status {
             text-align: center;
         }
-        .status{
-            
+
+        .status {
+
             margin-right: 1em;
         }
     </style>
@@ -110,6 +115,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=showMap"></script>
 
 
     <title>Accepted Applications</title>
@@ -130,18 +136,27 @@
                 <tr>
                     <th>Student ID</th>
                     <th>Student Name</th>
-                    <th>Organisation Details</th>
+                    <th>Organisation Name</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
                     <th>Attachment Details</th>
                     <th>Status</th>
                     <th></th>
                 </tr>
             </thead>
             @foreach($data as $data)
+
+            <?php
+            $lat = $data->address_latitude;
+            $long = $data->address_longitude;
+            ?>
             <tbody>
-                <tr>
+                <tr onclick="showMap(<?php echo $lat ?>,<?php echo $long ?>)">
                     <td>{{$data->id}}</td>
                     <td>{{$data->name}}</td>
-                    <td><a id="this1" href="{{ route('view_organization_details' ,$data->id)}}">View Details</a></td>
+                    <td>{{$data->org_name}}</td>
+                    <td>{{$lat}}</td>
+                    <td>{{$long}}</td>
                     <td><a id="this1" href="{{ route('view_attachment_details',$data->id)}}">View Details</a></td>
                     <td>Accepted</td>
                     <td id="status"><a class="status" id="this1" href="{{ route('reject_comments',$data->app_id)}}">Reject</a></td>
@@ -149,6 +164,9 @@
             </tbody>
             @endforeach
         </table>
+        <div class="container mb-5">
+            <div id="map" style="width:100%;height:300px;"></div>
+        </div>
     </div>
     <script>
         $(document).ready(function() {
@@ -169,7 +187,28 @@
                     'print'
                 ]
             });
+
         });
+
+        function showMap(lat, long) {
+            var coord = {
+                lat: lat,
+                lng: long
+            };
+
+            var map = new google.maps.Map(
+                document.getElementById("map"), {
+                    zoom: 10,
+                    center: coord
+                }
+            );
+
+            new google.maps.Marker({
+                position: coord,
+                map: map
+            })
+        }
+        showMap(0, 0);
     </script>
 </body>
 

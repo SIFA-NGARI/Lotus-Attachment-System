@@ -91,6 +91,10 @@
             <div class="content">
                 @foreach($data as $data)
                 <div class="container">
+                <h2>Organisation Details:</h2>
+                    <hr>
+                    <h3>{{$data->description}}</h3>
+                    <br />
                     <h2>Attachment Dates:</h2>
                     <hr>
                     <h3>{{$data->date}}</h3>
