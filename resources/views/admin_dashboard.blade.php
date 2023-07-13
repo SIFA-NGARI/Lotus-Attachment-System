@@ -7,7 +7,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Admin Dashboard</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -62,7 +62,7 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                    <h3>53</h3>
 
                                     <p>Students</p>
                                 </div>
@@ -100,7 +100,7 @@
                                 <div class="card-header">
                                     <h3 class="card-title">
                                         <i class="fas fa-chart-pie mr-1"></i>
-                                        Sales
+                                        Analytics
                                     </h3>
                                     <div class="card-tools">
                                         <ul class="nav nav-pills ml-auto">
@@ -514,7 +514,7 @@
                                 <div class="card-header border-0">
                                     <h3 class="card-title">
                                         <i class="fas fa-th mr-1"></i>
-                                        Sales Graph
+                                        Graph 
                                     </h3>
 
                                     <div class="card-tools">

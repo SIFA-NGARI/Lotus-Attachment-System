@@ -8,7 +8,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Supervisor Dashboard</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -30,9 +30,9 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>5</h3>
+                                    <h3>10</h3>
 
-                                    <p>Days left</p>
+                                    <p>Scheduled visits</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-calendar-day fa-fw"></i>
@@ -46,9 +46,9 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>1</h3>
+                                    <h3>4</h3>
 
-                                    <p>week left</p>
+                                    <p>completed visits</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-calendar-week fa-fw"></i>
@@ -63,9 +63,9 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                    <h3>22</h3>
 
-                                    <p>Overall grade</p>
+                                    <p>Assigned Students</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-graduation-cap fa-fw"></i>
@@ -81,7 +81,7 @@
                                 <div class="inner">
                                     <h3>0</h3>
 
-                                    <p>completed attachments</p>
+                                    <p>graded reports</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-paperclip fa-fw"></i>
