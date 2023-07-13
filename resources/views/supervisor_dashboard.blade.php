@@ -1,3 +1,4 @@
+
 @extends('layouts.supervisorlayout')
 @section('content')
         <!-- Content Wrapper. Contains page content -->

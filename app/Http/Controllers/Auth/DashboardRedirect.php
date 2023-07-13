@@ -11,9 +11,11 @@ class DashboardRedirect extends Controller
     public function dashboards(){
         if (Auth::check()) {
             if (Auth::user()->role == '2') {
+                Auth::user()->id  = session('student_id');
                 return view('student_dashboard');
             }
             if (Auth::user()->role == '1') {
+                Auth::user()->id  = session('supervisor_id');
                 return view('supervisor_dashboard');
             }
             if (Auth::user()->role == '0') {
