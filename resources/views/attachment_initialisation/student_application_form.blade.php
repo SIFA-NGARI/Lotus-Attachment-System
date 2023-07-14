@@ -28,7 +28,7 @@
         }
 
         .form-style-10 h1 {
-            background: #8c6653;
+            background: #0967B5;
             padding: 20px 30px 15px 30px;
             margin: -30px -30px 30px -30px;
             border-radius: 10px 10px 0 0;
@@ -84,12 +84,12 @@
 
         .form-style-10 .section {
             font: normal 20px 'Bitter', serif;
-            color: #8c6653;
+            color: #0967B5;
             margin-bottom: 5px;
         }
 
         .form-style-10 .section span {
-            background: #8c6653;
+            background: #0967B5;
             padding: 5px 10px 5px 10px;
             position: absolute;
             border-radius: 50%;
@@ -104,7 +104,7 @@
 
         .form-style-10 input[type="button"],
         .form-style-10 input[type="submit"] {
-            background: #8c6653;
+            background: #0967B5;
             padding: 8px 20px 8px 20px;
             border-radius: 5px;
             -webkit-border-radius: 5px;
@@ -194,7 +194,7 @@
 
     <script type="text/javascript">
         //date range
-        $('input[name="date_range"]').daterangepicker();
+        $('input[name="date"]').daterangepicker();
     </script>
     
     

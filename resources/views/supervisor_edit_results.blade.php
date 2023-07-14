@@ -20,7 +20,7 @@
         }
 
         a {
-            color: #88654e;
+            color: #0967B5;
         }
 
         a:hover {
@@ -76,7 +76,7 @@
         }
 
         h2 {
-            color: #88654e;
+            color: #0967B5;
         }
 
         button {
@@ -112,7 +112,7 @@
             content: 'UPLOAD FILE';
             display: inline-block;
             background: linear-gradient(top, #f9f9f9, #e3e3e3);
-            border: 1px solid #462A1C;
+            border: 1px solid #0967B5;
             margin-left: 0px;
             margin-top: 4px;
             height: 30px;

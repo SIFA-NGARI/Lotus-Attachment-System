@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.adminlayout')
+@section('content')
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Select fields') }}
@@ -65,4 +66,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection

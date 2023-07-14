@@ -1,5 +1,4 @@
-@extends('layouts.studentlayout')
-@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +39,7 @@
 
         #this {
             padding: 0.5em 0;
-            color: #8c6653;
+            color: #0967B5;
             position: relative;
             letter-spacing: 1px;
             text-decoration: none;
@@ -48,7 +47,7 @@
 
         #this1 {
 
-            color: #8c6653;
+            color: #0967B5;
 
         }
 
@@ -69,7 +68,7 @@
             height: 3px;
             width: 0%;
             content: "";
-            background-color: #8c6653;
+            background-color: #0967B5;
         }
 
         #this:after {
@@ -123,7 +122,9 @@
 
 <body>
     <div class="main-content">
-
+    <a href="{{route('dashboard')}}">
+            <button > <i class="las la-angle-left"></i></button>
+        </a>
         <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
@@ -210,4 +211,3 @@
 </body>
 
 </html>
-@endsection

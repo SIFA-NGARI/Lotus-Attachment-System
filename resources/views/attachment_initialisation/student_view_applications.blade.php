@@ -1,5 +1,4 @@
-@extends('layouts.studentlayout')
-@section('content') 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +12,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.bootstrap.min.css">
+
+    <!-- icons -->
+    <link rel="icon" type="image/x-icon" href="img/lotus.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="{{ URL::asset('css/results.css') }}">
 
@@ -40,7 +43,7 @@
 
         #this {
             padding: 0.5em 0;
-            color: #8c6653;
+            color: #0967B5;
             position: relative;
             letter-spacing: 1px;
             text-decoration: none;
@@ -48,7 +51,7 @@
 
         #this1 {
 
-            color: #8c6653;
+            color: #0967B5;
 
         }
 
@@ -69,7 +72,7 @@
             height: 3px;
             width: 0%;
             content: "";
-            background-color: #8c6653;
+            background-color:#0967B5;
         }
 
         #this:after {
@@ -124,7 +127,11 @@
 </head>
 
 <body>
+    
     <div class="main-content">
+    <a href="{{route('dashboard')}}">
+            <button > <i class="las la-angle-left"></i></button>
+        </a>
     <a href="{{route('attachment_application_form')}}">
             <button id="create-exam">+ Application</button>
         </a>
@@ -228,4 +235,3 @@
 </body>
 
 </html>
-@endsection

@@ -38,7 +38,7 @@
 
         #this {
             padding: 0.5em 0;
-            color: #8c6653;
+            color: #0967B5;
             position: relative;
             letter-spacing: 1px;
             text-decoration: none;
@@ -46,7 +46,7 @@
 
         #this1 {
 
-            color: #8c6653;
+            color: #0967B5;
 
         }
 
@@ -67,7 +67,7 @@
             height: 3px;
             width: 0%;
             content: "";
-            background-color: #8c6653;
+            background-color: #0967B5;
         }
 
         #this:after {
@@ -124,6 +124,9 @@
 
         <div class="nav">
             <ul id="snip1168">
+            <li> <a href="{{route('dashboard')}}">
+                        <button> <i class="las la-angle-left"></i></button>
+                    </a></li>
                 <li><a id="this" href="{{ route('view_applications') }}" data-hover="View Applications"> View Applications</a></li>
                 <li><a id="this" href="{{ route('accepted_applications') }}" data-hover="Accepted Applications">Accepted Applications</a></li>
                 <li class="current"><a id="this" href="#" data-hover="Rejected Applications">Rejected Applications</a></li>
