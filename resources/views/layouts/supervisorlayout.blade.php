@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--  <meta name="csrf-token" content="{{ csrf_token() }}">-->
 
@@ -226,7 +226,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link active">
+                            <a href="{{route('lec_view_attachments')}}" class="nav-link active">
                                 <i class="bi-briefcase nav-icon"></i>
                                 <p>Attachments</p>
                             </a>
@@ -263,7 +263,7 @@
 
                         <li class="nav-header">USER</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
+                            <a href="{{route('logout')}}" class="nav-link ">
                                 <i class="bi-person-x nav-icon"></i>
                                 <p class="text">Logout</p>
                             </a>

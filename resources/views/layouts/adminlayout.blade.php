@@ -147,25 +147,25 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link active">
+                            <a href="" class="nav-link active">
                             <i class="bi-file-earmark-person nav-icon"></i>
                                 <p>Register Admin </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{route('SupervisorRegistration')}}" class="nav-link">
                             <i class="bi-file-earmark-text nav-icon"></i>
                                 <p>Register Supervisor</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{route('view_applications')}}" class="nav-link">
                             <i class="bi-briefcase nav-icon"></i>
                                 <p>Attachment Applications</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
+                            <a href="{{route('AdminAllocations')}}" class="nav-link">
                             <i class="bi-clipboard-check nav-icon"></i>
                                 <p>Supervisor Allocations</p>
                             </a>
@@ -173,7 +173,7 @@
 
                         <li class="nav-header">USER</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
+                            <a href="{{route('logout')}}" class="nav-link ">
                                 <i class="bi-person-x nav-icon"></i>
                                 <p class="text">Logout</p>
                             </a>
