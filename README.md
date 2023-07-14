@@ -33,12 +33,12 @@ This module will integrate the Google Calendar API. This will improve the effici
 ### ix.	**Maps** 
 This module will integrate the Google Maps API. This module will aim to improve the site visit experience for the supervisor user as they locate the student users for on-site visits and assessments. 
 # Project Dependancies 
-###PHP >= 7.1.3
-###OpenSSL PHP Extension
-###PDO PHP Extension
-###Mbstring PHP Extension
-###Tokenizer PHP Extension
-###XML PHP Extension
+### PHP >= 7.1.3
+### OpenSSL PHP Extension
+### PDO PHP Extension
+### Mbstring PHP Extension
+### Tokenizer PHP Extension
+### XML PHP Extension
 ## Installation 
 ```
 # clone the repo
