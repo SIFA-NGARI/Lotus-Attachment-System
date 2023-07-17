@@ -163,4 +163,16 @@ class FileHandling extends Controller
         });
         return view('admin_dashboard',['markers'=>$markers]);
     }
+    public function makeLogbook(Request $request)
+    {
+        $date = $request->input('date');
+        $objectives = $request->input('objectives');
+        $tasks = $request->input('tasks');
+        $lessons = $request->input('lessons');
+        $attachment_id = session('attachment_id');
+        $seen=0;
+        $data = array('objectives' => $objectives, 'date' => $date, 'tasks' => $tasks,'lessons' => $lessons, 'attachment_id' => $attachment_id, 'seen'=>$seen);
+        DB::table('logbook')->insert($data);
+        return redirect()->back();
+    }
 }

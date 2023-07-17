@@ -13,7 +13,7 @@ use App\Http\Controllers\SupervisorReg;
 use App\Http\Controllers\SiteAuthController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DropDownController;
-
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +61,8 @@ Route::post('/import_process2', [ImportController::class, 'processImport2'])->na
 //student module
 Route::get('submissionDetails', [FileHandling::class, 'submissionDetails'])->name('submissionDetails')->middleware('role:2');
 Route::post('submit_assignment', [FileHandling::class, 'submitAssignment'])->name('submit_assignment')->middleware('role:2');
+Route::post('make_logbook', [FileHandling::class, 'makeLogbook'])->name('make_logbook')->middleware('role:2');
+
 Route::post('submit_assignment2', [FileHandling::class, 'submitAssignment2'])->name('submit_assignment2')->middleware('role:2');
 Route::post('save_as_draft2', [FileHandling::class, 'saveAsDraft2'])->name('save_as_draft2')->middleware('role:2');
 Route::post('save_as_draft', [FileHandling::class, 'saveAsDraft'])->name('save_as_draft')->middleware('role:2');
@@ -83,7 +85,23 @@ Route::get('google-map', [FileHandling::class, 'maps'])->name('google_map');
 Route::get('student_logbook', function(){
     return view('student_logbook');
 })->name('student_logbook');
+Route::get('lecturer_logbook', function(){
+    $data=DB::table('logbook')->join('applications','applications.id','=','logbook.attachment_id')->select('applications.student_id','logbook.id as id','logbook.date')->get();
+    return view('lecturer_logbook')->with('data',$data);
+})->name('lecturer_logbook');
 
+Route::get('view_logbook_lec/{id}/{sname}',function($id,$sname){
+    $data=DB::table('logbook')->where('id','=',$id)->get();
+    return view('view_logbook_lec')->with('data',$data)->with('sname',$sname);
+})->name('view_logbook_lec');
+Route::get('view_logbook_student/{id}',function($id){
+    $data=DB::table('logbook')->where('id','=',$id)->get();
+    return view('view_logbook_student')->with('data',$data);
+})->name('view_logbook_student');
+Route::get('comment_logbook/{id}/{sname}',function($id,$sname){
+    $data=DB::table('logbook')->where('id','=',$id)->get();
+    return view('comment_logbook')->with('data',$data)->with('sname',$sname);
+})->name('comment_logbook');
 
 //supervisor module
 Route::get('/Lec_view_submissions', [FileHandling::class, 'LecViewSubmissions'])->name('Lec_view_submissions')->middleware('role:1');

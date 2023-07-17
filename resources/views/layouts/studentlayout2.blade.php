@@ -241,7 +241,13 @@
                         <li class="nav-item">
                             <a href="{{route('student_logbook')}}" class="nav-link">
                                 <i class="bi-paperclip nav-icon"></i>
-                                <p>Logbook</p>
+                                <p>Update Logbook</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('student_logbook')}}" class="nav-link">
+                                <i class="bi-paperclip nav-icon"></i>
+                                <p>View Logbook</p>
                             </a>
                         </li>
                         <li class="nav-item">
