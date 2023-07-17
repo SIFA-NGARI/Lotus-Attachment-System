@@ -30,6 +30,7 @@ Route::get('/', function () {
     return view('auth/register');
 });
 
+
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
 
@@ -49,6 +50,7 @@ Route::get('site-register', [SiteAuthController::class, 'siteRegister']);
 Route::post('site-register', [SiteAuthController::class, 'siteRegisterPost']);
 
 Route::get('/viewAssignmentSubmission/{material_id}', [FileHandling::class, 'viewAssignmentSubmission'])->name('viewAssignmentSubmission');
+Route::get('/viewAssignmentDraft/{material_id}', [FileHandling::class, 'viewAssignmentDraft'])->name('viewAssignmentDraft');
 
 Route::post('/import_parse2', [ImportController::class, 'parseImport2'])->name('import_parse2');
 Route::post('/import_process2', [ImportController::class, 'processImport2'])->name('import_process2');
@@ -59,25 +61,46 @@ Route::post('/import_process2', [ImportController::class, 'processImport2'])->na
 //student module
 Route::get('submissionDetails', [FileHandling::class, 'submissionDetails'])->name('submissionDetails')->middleware('role:2');
 Route::post('submit_assignment', [FileHandling::class, 'submitAssignment'])->name('submit_assignment')->middleware('role:2');
+Route::post('submit_assignment2', [FileHandling::class, 'submitAssignment2'])->name('submit_assignment2')->middleware('role:2');
+Route::post('save_as_draft2', [FileHandling::class, 'saveAsDraft2'])->name('save_as_draft2')->middleware('role:2');
+Route::post('save_as_draft', [FileHandling::class, 'saveAsDraft'])->name('save_as_draft')->middleware('role:2');
 Route::post('delete_assignment', [FileHandling::class, 'deleteAssignment'])->name('delete_assignment')->middleware('role:2');
-Route::post('edit_assignment', [FileHandling::class, 'editAssignment'])->name('edit_assignment')->middleware('role:2');
-Route::get('attachment_application_form',[DropDownController::class,'index'])->name('attachment_application_form')->middleware('role:2');
-Route::post('api/fetch-state',[DropDownController::class,'fatchState'])->middleware('role:2');
-Route::post('api/fetch-cities',[DropDownController::class,'fatchCity'])->middleware('role:2');
+Route::post('edit_assignment3', [FileHandling::class, 'editAssignment'])->name('edit_assignment3')->middleware('role:2');
+Route::get('attachment_application_form', [DropDownController::class, 'index'])->name('attachment_application_form')->middleware('role:2');
+Route::post('api/fetch-state', [DropDownController::class, 'fatchState'])->middleware('role:2');
+Route::post('api/fetch-cities', [DropDownController::class, 'fatchCity'])->middleware('role:2');
 Route::post('/student_application', [AttachmentInitialisation::class, 'createApplication'])->name('student_application')->middleware('role:2');
 Route::get('student_view_accepted_attachments', [AttachmentInitialisation::class, 'studentViewAcceptedAttachments'])->name('student_view_accepted_attachments')->middleware('role:2');
 Route::get('student_view_attachment_details2/{application_id}', [AttachmentInitialisation::class, 'viewAttachmentDetails2'])->name('student_view_attachment_details2')->middleware('role:2');
 Route::get('student_view_attachments', [AttachmentInitialisation::class, 'studentViewAttachments'])->name('student_view_attachments')->middleware('role:2');
 Route::get('student_view_attachment_details/{application_id}', [AttachmentInitialisation::class, 'studentViewAttachmentDetails'])->name('student_view_attachment_details')->middleware('role:2');
 Route::get('student_view_reject_comments/{application_id}', [AttachmentInitialisation::class, 'studentViewRejectComments'])->name('student_view_reject_comments')->middleware('role:2');
+Route::get('attachment_dashboard/{attachment_id}/{supervisor_id}/{type}', [FileHandling::class, 'attachmentDashboard'])->name('attachment_dashboard');
+Route::get('dashboard3', function(){
+    return view('student_dashboard3');
+})->name('dashboard3');
+Route::get('google-map', [FileHandling::class, 'maps'])->name('google_map');
+Route::get('student_logbook', function(){
+    return view('student_logbook');
+})->name('student_logbook');
+
 
 //supervisor module
 Route::get('/Lec_view_submissions', [FileHandling::class, 'LecViewSubmissions'])->name('Lec_view_submissions')->middleware('role:1');
+
+Route::get('/gradeSubmission/{report_id}', [FileHandling::class, 'gradeSubmissions'])->name('gradeSubmission')->middleware('role:1');
+
 Route::post('create_assessment', [GradeHandler::class, 'createAssessment'])->name('create_assessment')->middleware('role:1');
 Route::post('fetch_assessment_details', [GradeHandler::class, 'fetchAssessmentDetails'])->name('fetch_assessment_details')->middleware('role:1');
 Route::post('update_student_results', [GradeHandler::class, 'updateStudentResults'])->name('update_student_results')->middleware('role:1');
 Route::post('edit_student_results', [GradeHandler::class, 'editStudentResults'])->name('edit_student_results')->middleware('role:1');
 Route::post('edit_student_results2', [GradeHandler::class, 'editStudentResults2'])->name('edit_student_results2')->middleware('role:1');
+Route::get('student_chooser', function () {
+    $data = DB::table('applications')->where('student_id', "=", Auth::user()->id)->where('status', "=", 1)->get();
+    $data2 = DB::table('supervisor_allocations')->where('student_id', "=", Auth::user()->id)->get();
+    return view('student_dashboard2')->with('data', $data)->with('data2', $data2);
+})->name('student_chooser');
+
 
 Route::get('update_results', function () {
     $data = DB::table('assessments')->where('supervisor_id', '=', Auth::user()->id)->get();
@@ -93,6 +116,7 @@ Route::get('/view_results', function () {
     $data6 = DB::table('assessments')->where('assessments.supervisor_id', '=', Auth::user()->id)->select('name')->get();
     return view('supervisor_view_results')->with('data4', $data4)->with('data6', $data6);
 })->name('view_results')->middleware('role:1');
+
 Route::get('lec_view_attachments', [AttachmentInitialisation::class, 'lecViewAttachments'])->name('lec_view_attachments')->middleware('role:1');
 Route::get('view_attachment_details_lec/{application_id}', [AttachmentInitialisation::class, 'viewAttachmentDetails3'])->name('view_attachment_details_lec')->middleware('role:1');
 
@@ -100,7 +124,9 @@ Route::get('view_attachment_details_lec/{application_id}', [AttachmentInitialisa
 //admin module
 Route::get('/admin_reg_supp', [AdminRegSupervisor::class, 'index'])->name('SupervisorRegistration')->middleware('role:0');
 Route::get('/admin_allocation', [AdminRegSupervisor::class, 'adminAllocations'])->name('AdminAllocations')->middleware('role:0');
-Route::get('/fetch_form', function () {return view('reg_sup');})->name('fetch_form')->middleware('role:0');
+Route::get('/fetch_form', function () {
+    return view('reg_sup');
+})->name('fetch_form')->middleware('role:0');
 Route::post('/sup_reg', [SupervisorReg::class, 'store'])->name('sup_reg')->middleware('role:0');
 Route::get('edit_assignment_page/{student_id}', [AttachmentInitialisation::class, 'editAssignmentPage'])->name('edit_assignment_page')->middleware('role:0');
 Route::post('edit_assignment', [AttachmentInitialisation::class, 'editAssignment'])->name('edit_assignment')->middleware('role:0');
@@ -114,8 +140,11 @@ Route::get('reject_comments/{application_id}', [AttachmentInitialisation::class,
 Route::get('accepted_applications', [AttachmentInitialisation::class, 'acceptedApplications'])->name('accepted_applications')->middleware('role:0');
 Route::get('rejected_applications', [AttachmentInitialisation::class, 'rejectedApplications'])->name('rejected_applications')->middleware('role:0');
 Route::get('view_reject_comments/{application_id}', [AttachmentInitialisation::class, 'viewRejectComments'])->name('view_reject_comments')->middleware('role:0');
+Route::get('rep', function () {
+    return view('report_status)');
+});
 
 
 
 require __DIR__ . '/auth.php';
-
+require __DIR__ . '/crud.php';

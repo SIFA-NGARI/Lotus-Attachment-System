@@ -227,7 +227,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="{{route('lec_view_attachments')}}" class="nav-link active">
+                            <a href="{{route('lecs_atachments')}}" class="nav-link active">
                                 <i class="bi-briefcase nav-icon"></i>
                                 <p>Attachments</p>
                             </a>

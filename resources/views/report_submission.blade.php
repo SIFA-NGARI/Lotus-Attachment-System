@@ -199,7 +199,7 @@
                     <br />
                     <h2>Edit Your Submission</h2>
                     <br />
-                    <form action="{{route('edit_assignment')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('edit_assignment3')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <label for="file">Upload File</label>
                         <div class="file">

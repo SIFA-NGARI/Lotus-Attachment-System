@@ -229,11 +229,12 @@
                         <li class="nav-item">
                             <a href="{{route('student_view_attachments')}}" class="nav-link active">
                                 <i class="bi-briefcase nav-icon"></i>
-                                <p>Application </p>
+                                <p> Applications </p>
                             </a>
                         </li>
+                        
                         <li class="nav-item">
-                            <a href="{{route('student_view_accepted_attachments')}}" class="nav-link">
+                            <a href="{{route('student_chooser')}}" class="nav-link">
                                 <i class="bi-paperclip nav-icon"></i>
                                 <p>My Attachments</p>
                             </a>
