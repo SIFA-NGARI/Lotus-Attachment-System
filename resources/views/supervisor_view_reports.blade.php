@@ -26,7 +26,7 @@
 
         #this {
             padding: 0.5em 0;
-            color: #8c6653;
+            color: #0967B5;
             position: relative;
             letter-spacing: 1px;
             text-decoration: none;
@@ -34,7 +34,7 @@
 
         #this1 {
 
-            color: #8c6653;
+            color: #0967B5;
 
         }
 
@@ -55,7 +55,7 @@
             height: 3px;
             width: 0%;
             content: "";
-            background-color: #8c6653;
+            background-color: #0967B5;
         }
 
         #this:after {

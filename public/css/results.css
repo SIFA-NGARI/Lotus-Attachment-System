@@ -1,5 +1,6 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback');
+
 
 html {
   font-family: "Titillium";
@@ -35,10 +36,10 @@ main hr {
   width: 93%;
 }
 .box h2 {
-  color: #8c6653;
+  color: #0967B5;;
 }
 .box hr {
-  border: 1px solid #8c6653;
+  border: 1px solid #0967B5;;
   border-radius: 50px;
 }
 .choose-exam{
@@ -70,20 +71,20 @@ table td {
   padding-top: 5px;
   padding: 10px 0;
   align-items: left;
-  border-bottom: 1.1px solid #88654e;
+  border-bottom: 1.1px solid #0967B5;;
 }
 
 
 
 table tbody tr:hover {
   /* background-color: #8c66534d; */
-  color:#88654e;
+  color:#0967B5;
   /* border-radius: 50px; */
   transition: 0.2s;
 }
 
 button {
-  background: rgb(56, 52, 52);
+  background:#0967B5;;
   border: 0px solid #fff;
   margin-top: 10px;
   /* height: 45px; */
@@ -100,7 +101,7 @@ button {
 }
 
 button:hover {
-  color: rgb(150, 5, 5);
+  color: #34A853;
   background-color: white;
   border:1px solid black;
 
@@ -112,7 +113,7 @@ button:hover {
   border: 0;
   border-radius: 50px;
   color: white;
-  background-color: #ca9e93;
+  background-color: #0967B5;;
   /* height: 35px; */
   font-weight: bolder;
   font-size: 15px;
@@ -121,11 +122,11 @@ button:hover {
 }
 
 .btn:hover {
-  background-color: #8c6653;
+  background-color: #0967B5;;
 }
 
 .btn:active {
-  background-color: #ca9e93;
+  background-color: #0967B5;;
 }
 
 #final_submit{
@@ -159,10 +160,10 @@ button:hover {
 
 .input {
   border: 0;
-  border-bottom: 2px solid #462a1c;
+  border-bottom: 2px solid #0967B5;;
   outline: 0;
   font-size: 1.3rem;
-  color: #462a1c;
+  color: #0967B5;;
   padding: 7px 0;
   background: transparent;
   /* margin-bottom: 30px; */
@@ -192,7 +193,7 @@ button:hover {
 
 .snip1168 a {
   padding: 0.5em 0;
-  color: #8c6653;
+  color: #0967B5;;
   position: relative;
   letter-spacing: 1px;
   text-decoration: none;
@@ -211,7 +212,7 @@ button:hover {
   height: 3px;
   width: 0%;
   content: "";
-  background-color: #8c6653;
+  background-color: #0967B5;;
 }
 
 .snip1168 a:after {
@@ -286,7 +287,7 @@ button:hover {
   padding: 20px 0;
 }
 .overlay #close {
-  color: #88654e;
+  color: #0967B5;
   float: right;
 }
 .overlay #close:hover {
@@ -307,12 +308,12 @@ button:hover {
   margin-left: 4%;
 }
 .materialbox a {
-  color: #462a1c;
+  color: #0967B5;;
   margin-bottom: 50%;
   font-size: 20px;
 }
 .materialbox a:hover {
-  color: #8c6653;
+  color: #0967B5;;
 }
 
 input[type="checkbox"]{
@@ -346,7 +347,7 @@ input[type="checkbox"]:hover{
 }
 
 input[type="checkbox"]:checked{
-  background-color: #8C6653;
+  background-color: #0967B5;;
 }
 
 .formA input{

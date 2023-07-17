@@ -76,7 +76,7 @@
         }
 
         h2 {
-            color: #88654e;
+            color: #0967B5;
         }
 
         button {
@@ -112,7 +112,7 @@
             content: 'UPLOAD FILE';
             display: inline-block;
             background: linear-gradient(top, #f9f9f9, #e3e3e3);
-            border: 1px solid #462A1C;
+            border: 1px solid #0967B5;
             margin-left: 0px;
             margin-top: 4px;
             height: 30px;
@@ -199,7 +199,7 @@
                     <br />
                     <h2>Edit Your Submission</h2>
                     <br />
-                    <form action="{{route('edit_assignment')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('edit_assignment3')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <label for="file">Upload File</label>
                         <div class="file">
