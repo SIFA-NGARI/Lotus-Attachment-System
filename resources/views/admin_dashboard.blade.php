@@ -1,5 +1,6 @@
 @extends('layouts.adminlayout')
 @section('content')
+
 <!-- Content Wrapper. Contains page content -->
 
 <!-- Content Header (Page header) -->
@@ -39,6 +40,8 @@
                     </div>
                     <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
+
+
             </div>
 
             <div class="col-lg-3 col-6">
@@ -73,12 +76,14 @@
                 </div>
             </div>
 
+
             <!-- ./col -->
             <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
                         <h3>130</h3>
+
 
                         <p>Applications</p>
                     </div>
@@ -214,6 +219,7 @@
                             <!-- /.direct-chat-msg -->
 
                         </div>
+
                         <!--/.direct-chat-messages-->
 
                         <!-- Contacts are loaded here -->
@@ -229,6 +235,7 @@
                                                 <small class="contacts-list-date float-right">2/28/2015</small>
                                             </span>
                                             <span class="contacts-list-msg">How have you been? I was...</span>
+
                                         </div>
                                         <!-- /.contacts-list-info -->
                                     </a>
@@ -402,6 +409,7 @@
                                     <i class="fas fa-edit"></i>
                                     <i class="fas fa-trash-o"></i>
                                 </div>
+
                             </li>
                             <li>
                                 <span class="handle">
@@ -411,6 +419,7 @@
                                 <div class="icheck-primary d-inline ml-2">
                                     <input type="checkbox" value="" name="todo4" id="todoCheck4">
                                     <label for="todoCheck4"></label>
+
                                 </div>
                                 <span class="text">Let theme shine like a star</span>
                                 <small class="badge badge-success"><i class="far fa-clock"></i> 3 days</small>
