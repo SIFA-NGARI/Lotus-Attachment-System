@@ -43,6 +43,7 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -226,19 +227,20 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link active">
+                            <a href="{{route('student_view_attachments')}}" class="nav-link active">
                                 <i class="bi-briefcase nav-icon"></i>
-                                <p>Application </p>
+                                <p> Applications </p>
                             </a>
                         </li>
+                        
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{route('student_chooser')}}" class="nav-link">
                                 <i class="bi-paperclip nav-icon"></i>
-                                <p>Attachment details</p>
+                                <p>My Attachments</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="" class="nav-link">
                                 <i class="bi-journal-bookmark nav-icon"></i>
                                 <p>Logbook</p>
                             </a>
@@ -280,10 +282,14 @@
 
                         <li class="nav-header">USER</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
-                                <i class="bi-person-x nav-icon"></i>
-                                <p class="text">Logout</p>
-                            </a>
+                        <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
                         </li>
 
                     </ul>

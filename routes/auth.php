@@ -58,3 +58,5 @@ Route::middleware('auth','prevent-back-history')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 });
+
+

@@ -1,6 +1,8 @@
-<x-app-layout>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+
+
+@extends('layouts.adminlayout')
+@section('content')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.bootstrap.min.css">
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -15,15 +17,15 @@
     <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
     <div class="py-12">
-        <!-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg"> -->
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
                     <form action="{{ route('import_parse2') }}" method="POST" class="mb-4" enctype="multipart/form-data">
                         @csrf
 
                         <div>
-                            <x-input-label for="csv_file" :value="__('Register from .csv file')" />
+                            <x-input-label for="csv_file" :value="__('Allocate from .csv file')" />
 
                             <x-text-input id="csv_file" class=" mt-1 " type="file" name="csv_file" required />
                         </div>
@@ -39,54 +41,55 @@
                         </x-primary-button>
                     </form>
 
-                    <div class="overflow-hidden overflow-x-auto min-w-full align-middle sm:rounded-md">
+                    <!-- <div class="overflow-hidden overflow-x-auto min-w-full align-middle sm:rounded-md"> -->
                         <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th class="px-6 py-3 bg-gray-50" style="text-align: center;">
-                                        <span class="text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Student ID</span>
+                                    <th >
+                                        Student ID
                                     </th>
-                                    <th class="px-6 py-3 bg-gray-50" style="text-align: center;">
-                                        <span class="text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Student Name</span>
+                                    <th >
+                                        Student Name
                                     </th>
-                                    <th class="px-6 py-3 bg-gray-50" style="text-align: center;">
-                                        <span class="text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Supervisor ID</span>
+                                    <th >
+                                        Supervisor ID
                                     </th>
-                                    <th class="px-6 py-3 bg-gray-50" style="text-align: center;">
-                                        <span class="text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Supervisor Name</span>
+                                    <th >
+                                        Supervisor Name
                                     </th>
-                                    <th class="px-6 py-3 bg-gray-50" style="text-align: center;">
-                                        <span class="text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Change</span>
+                                    <th >
+                                        Change
                                     </th>
-                                    <th class="px-6 py-3 bg-gray-50" style="text-align: center;">
-                                        <span class="text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Nullify</span>
+                                    <th >
+                                        Nullify
                                     </th>
                                 </tr>
                             </thead>
 
-                            <tbody class="bg-white divide-y divide-gray-200 divide-solid">
+                            <!-- <tbody class="bg-white divide-y divide-gray-200 divide-solid"> -->
+                                <tbody>
                                 @foreach($data as $data)
                                 <?php
                                 $data2 = DB::table('users')->where('id', '=', $data->student_id)->get();
                                 $id =$data->student_id;
                                 ?>
-                                <tr class="bg-white">
-                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900" style="text-align: center;">
+                                <tr>
+                                    <td  style="text-align: center;">
                                         {{$id }}
                                     </td>
                                     @foreach($data2 as $data2)
-                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900" style="text-align: center;">
+                                    <td  style="text-align: center;">
                                         {{ $data2->name}}
                                     </td>
                                     @endforeach
                                     <?php
                                     $data3 = DB::table('users')->where('id', '=', $data->supervisor_id)->get();
                                     ?>
-                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900" style="text-align: center;">
+                                    <td  style="text-align: center;">
                                         {{ $data->supervisor_id}}
                                     </td>
                                     @foreach($data3 as $data3)
-                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900" style="text-align: center;">
+                                    <td  style="text-align: center;">
                                         {{ $data3->name}}
                                     </td>
                                     @endforeach
@@ -96,14 +99,14 @@
                                 @endforeach
                             </tbody>
                         </table>
-                    </div>
+                   
 
                 </div>
-            <!-- </div>
-        </div> -->
+            </div>
+        </div>
     </div>
     <script>
-        $(document).ready(function() {
+         $(document).ready(function() {
             //Only needed for the filename of export files.
             //Normally set in the title tag of your page.
             document.title = 'Accepted Attachment Applications';
@@ -114,9 +117,14 @@
                 "autoWidth": true,
                 "buttons": [
                     'colvis',
-
+                    'copyHtml5',
+                    'csvHtml5',
+                    'excelHtml5',
+                    'pdfHtml5',
+                    'print'
                 ]
             });
+
         });
     </script>
-</x-app-layout>
+    @endsection

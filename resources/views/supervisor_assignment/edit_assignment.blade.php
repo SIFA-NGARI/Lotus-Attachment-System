@@ -20,7 +20,7 @@
         }
 
         a {
-            color: #88654e;
+            color: #0967B5;
         }
 
         a:hover {
@@ -76,7 +76,7 @@
         }
 
         h2 {
-            color: #88654e;
+            color: #0967B5;
         }
         button {
             background: rgb(56, 52, 52);
@@ -97,7 +97,7 @@
         }
 
         button:hover {
-            color:  #88654e;
+            color:  #0967B5;
             background-color: white;
             border: 1px solid black;
 

@@ -1,9 +1,9 @@
 # lotus attachment system
 Optimizing University Attachments using a Web-Based System for Streamlined Document Collection and Planning
 
+
 ### project description
 The process of planning and documentation of student attachments in universities can be a time-consuming and challenging task. The evaluation procedure involves site visits and manual submissions of document reports. Planning site visits poses logistical difficulties due to ineffective communication. In addition, the submission of hardcopy reports leads to long-term environmental degradation. This project aims to alleviate these problems by developing an attachment system to automate the process. The proposed approach is designed to address gaps in existing solutions by offering novel features, such as a platform for the online documentation of weekly logs and reports, synchronized planning, and communication between the faculty supervisor and the student using a coordinated calendar and chatting module, among other features.
-
 
 ## features
 ### i.	**authentication module**
@@ -33,6 +33,7 @@ This module will integrate the Google Calendar API. This will improve the effici
 ### ix.	**maps** 
 This module will integrate the Google Maps API. This module will aim to improve the site visit experience for the supervisor user as they locate the student users for on-site visits and assessments. 
 
+
 ## project dependencies 
 * PHP >= 7.1.3
 * OpenSSL PHP Extension
@@ -40,8 +41,8 @@ This module will integrate the Google Maps API. This module will aim to improve 
 * Mbstring PHP Extension
 * Tokenizer PHP Extension
 * XML PHP Extension
-## installation 
-clone the repository and change the directory into your Laravel app's directory. Run the project dependencies to complete the installation process. 
+
+## Installation 
 ```
 git clone https://github.com/SIFA-NGARI/Lotus-Attachment-System.git
 

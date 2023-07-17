@@ -20,7 +20,7 @@
         }
 
         a {
-            color: #88654e;
+            color: #0967B5;
         }
 
         a:hover {
@@ -76,7 +76,7 @@
         }
 
         h2 {
-            color: #88654e;
+            color: #0967B5;
         }
 
        

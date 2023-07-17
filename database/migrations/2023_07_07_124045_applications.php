@@ -15,13 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('student_id');
             $table->string('org_name');
-            $table->string('branch');
-            $table->string('address');
             $table->longText('description');
             $table->string('date');
-            $table->string('country');
-            $table->string('state');
-            $table->string('city');
+            $table->string('address_address')->nullable();
+            $table->double('address_latitude')->nullable();
+            $table->double('address_longitude')->nullable();
             $table->integer('hours');
             $table->longText('activities');
             $table->longText('skills');
@@ -30,6 +28,7 @@ return new class extends Migration
             $table->string('type');
 
             $table->foreign('student_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

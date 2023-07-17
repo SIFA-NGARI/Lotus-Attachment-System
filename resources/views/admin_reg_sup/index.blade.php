@@ -1,5 +1,6 @@
-<x-app-layout>
 
+@extends('layouts.adminlayout')
+@section('content')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -31,7 +32,7 @@
                     </form>
 
                     <div class="overflow-hidden overflow-x-auto min-w-full align-middle sm:rounded-md">
-                        <table class="min-w-full divide-y divide-gray-200 border">
+                        <table id="example" class="min-w-full divide-y divide-gray-200 border">
                             <thead>
                                 <tr>
                                     <th class="px-6 py-3 bg-gray-50" style="text-align: center;">
@@ -70,4 +71,28 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+    <script>
+        $(document).ready(function() {
+            //Only needed for the filename of export files.
+            //Normally set in the title tag of your page.
+            document.title = 'Attachment Applications';
+            // DataTable initialisation
+            $('#example').DataTable({
+                "dom": '<"dt-buttons"Bf><"clear">lirtp',
+                "paging": true,
+                "autoWidth": true,
+                "buttons": [
+                    'colvis',
+                    'copyHtml5',
+                    'csvHtml5',
+                    'excelHtml5',
+                    'pdfHtml5',
+                    'print'
+                ]
+            });
+        });
+
+       
+     
+    </script>
+    @endsection

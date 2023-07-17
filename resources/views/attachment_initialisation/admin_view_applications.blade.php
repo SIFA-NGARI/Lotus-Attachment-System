@@ -38,17 +38,20 @@
 
         #this {
             padding: 0.5em 0;
-            color: #8c6653;
+            color: #0967B5;
+            ;
             position: relative;
             letter-spacing: 1px;
             text-decoration: none;
         }
+
         #this1 {
-           
-            color: #8c6653;
-          
+
+            color: #0967B5;
+
         }
-        #this1:hover{
+
+        #this1:hover {
             color: black;
         }
 
@@ -65,7 +68,7 @@
             height: 3px;
             width: 0%;
             content: "";
-            background-color: #8c6653;
+            background-color: #0967B5;
         }
 
         #this:after {
@@ -91,13 +94,14 @@
             max-width: 100%;
         }
 
-        #status{
+        #status {
             padding: 0;
             font-size: 30px;
             text-align: center;
         }
-        .status{
-            
+
+        .status {
+
             margin-right: 1em;
         }
     </style>
@@ -112,6 +116,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=showMap"></script>
 
 
     <title>View Attachment Applications</title>
@@ -121,7 +126,11 @@
     <div class="main-content">
 
         <div class="nav">
+
             <ul id="snip1168">
+                <li> <a href="{{route('dashboard')}}">
+                        <button> <i class="las la-angle-left"></i></button>
+                    </a></li>
                 <li class="current"><a id="this" href="#" data-hover="View Applications"> View Applications</a></li>
                 <li><a id="this" href="{{ route('accepted_applications') }}" data-hover="Accepted Applications">Accepted Applications</a></li>
                 <li><a id="this" href="{{ route('rejected_applications') }}" data-hover="Rejected Applications">Rejected Applications</a></li>
@@ -132,23 +141,34 @@
                 <tr>
                     <th>Student ID</th>
                     <th>Student Name</th>
-                    <th>Organisation Details</th>
+                    <th>Organisation Name</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
                     <th>Attachment Details</th>
                     <th>Status</th>
                 </tr>
             </thead>
             @foreach($data as $data)
+            <?php
+            $lat = $data->address_latitude;
+            $long = $data->address_longitude;
+            ?>
             <tbody>
-                <tr>
+                <tr onclick="showMap(<?php echo $lat ?>,<?php echo $long ?> )">
                     <td>{{$data->id}}</td>
                     <td>{{$data->name}}</td>
-                    <td><a id="this1" href="{{ route('view_organization_details' ,$data->id)}}">View Details</a></td>
-                    <td><a id="this1" href="{{ route('view_attachment_details',$data->id)}}">View Details</a></td>
+                    <td>{{$data->org_name}}</td>
+                    <td>{{$lat}}</td>
+                    <td>{{$data->address_longitude}}</td>
+                    <td><a id="this1" href="{{ route('view_attachment_details',$data->app_id)}}">View Details</a></td>
                     <td id="status"><a class="status" id="this1" href="{{ route('accept_attachment',$data->app_id)}}"><i class="las la-check"></i></a><a id="this1" href="{{ route('reject_comments',$data->app_id)}}"><i class="las la-times"></i></a></td>
                 </tr>
             </tbody>
             @endforeach
         </table>
+        <div class="container mb-5">
+            <div id="map" style="width:100%;height:300px;"></div>
+        </div>
     </div>
     <script>
         $(document).ready(function() {
@@ -170,6 +190,26 @@
                 ]
             });
         });
+
+        function showMap(lat, long) {
+            var coord = {
+                lat: lat,
+                lng: long
+            };
+
+            var map = new google.maps.Map(
+                document.getElementById("map"), {
+                    zoom: 10,
+                    center: coord
+                }
+            );
+
+            new google.maps.Marker({
+                position: coord,
+                map: map
+            })
+        }
+        showMap(0, 0);
     </script>
 </body>
 

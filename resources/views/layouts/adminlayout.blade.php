@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- icons -->
     <link rel="icon" type="image/x-icon" href="img/lotus.svg">
+    
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -42,7 +43,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
     <!-- Scripts -->
+    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
+    
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -146,26 +150,26 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="./index2.html" class="nav-link active">
+                <!--   <li class="nav-item">
+                            <a href="" class="nav-link active">
                             <i class="bi-file-earmark-person nav-icon"></i>
                                 <p>Register Admin </p>
                             </a>
-                        </li>
+                        </li>-->
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{route('SupervisorRegistration')}}" class="nav-link active">
                             <i class="bi-file-earmark-text nav-icon"></i>
                                 <p>Register Supervisor</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{route('view_applications')}}" class="nav-link">
                             <i class="bi-briefcase nav-icon"></i>
                                 <p>Attachment Applications</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
+                            <a href="{{route('AdminAllocations')}}" class="nav-link">
                             <i class="bi-clipboard-check nav-icon"></i>
                                 <p>Supervisor Allocations</p>
                             </a>
@@ -173,10 +177,14 @@
 
                         <li class="nav-header">USER</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
-                                <i class="bi-person-x nav-icon"></i>
-                                <p class="text">Logout</p>
-                            </a>
+                        <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
                         </li>
 
                     </ul>
@@ -253,6 +261,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    
 </body>
 
 </html>

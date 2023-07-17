@@ -43,6 +43,7 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -226,12 +227,12 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link active">
+                            <a href="{{route('lecs_atachments')}}" class="nav-link active">
                                 <i class="bi-briefcase nav-icon"></i>
                                 <p>Attachments</p>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a href="pages/widgets.html" class="nav-link">
                                 <i class="bi-calendar3 nav-icon"></i>
@@ -263,7 +264,15 @@
 
                         <li class="nav-header">USER</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
+                            
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
                                 <i class="bi-person-x nav-icon"></i>
                                 <p class="text">Logout</p>
                             </a>

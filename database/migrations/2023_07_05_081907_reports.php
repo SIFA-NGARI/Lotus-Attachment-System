@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id('report_id');
-            $table->integer('student_id');
+            $table->integer('attachment_id');
             $table->string('file');
-            $table->date('date');
+            $table->datetime('date');
             $table->timestamps();
+            $table->integer('grade');
         });
     }
 

@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.adminlayout')
+@section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"></script>
@@ -93,4 +94,4 @@
         input.addEventListener('change', reset);
         input.addEventListener('keyup', reset);
     </script>
-</x-app-layout>
+@endsection

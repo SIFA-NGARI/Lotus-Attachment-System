@@ -28,7 +28,7 @@
         }
 
         .form-style-10 h1 {
-            background: #8c6653;
+            background: #0967B5;
             padding: 20px 30px 15px 30px;
             margin: -30px -30px 30px -30px;
             border-radius: 10px 10px 0 0;
@@ -84,12 +84,12 @@
 
         .form-style-10 .section {
             font: normal 20px 'Bitter', serif;
-            color: #8c6653;
+            color: #0967B5;
             margin-bottom: 5px;
         }
 
         .form-style-10 .section span {
-            background: #8c6653;
+            background: #0967B5;
             padding: 5px 10px 5px 10px;
             position: absolute;
             border-radius: 50%;
@@ -104,7 +104,7 @@
 
         .form-style-10 input[type="button"],
         .form-style-10 input[type="submit"] {
-            background: #8c6653;
+            background: #0967B5;
             padding: 8px 20px 8px 20px;
             border-radius: 5px;
             -webkit-border-radius: 5px;
@@ -145,6 +145,9 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize" async defer></script>
+    <script src="/js/mapInput.js"></script>
+
 </head>
 
 <body>
@@ -154,24 +157,17 @@
             @csrf
             <div class="section"><span>1</span>Organization Details</div>
             <div class="inner-wrap">
-                <label>Organization's Full Name <input type="text" name="name" /></label>
-                <label>Branch <input type="text" name="branch" /></label>
-                <label>Address<input type="text" name="address" /></label>
-                <label>Country
-                    <select id="country-dd" class="form-control" name="country">
-                        <option value="">Select Country</option>
-                        @foreach($counteries as $data)
-                        <option value="{{$data->id}}">{{$data->name}}</option>
-                        @endforeach
-                    </select>
-                </label>
-                <label>State
-                    <select id="state-dd" class="form-control" name="state"></select>
-                </label>
-                <label>City
-                    <select id="city-dd" class="form-control" name="city"></select>
-                </label>
+                <label>Organization's Full Name <input type="text" name="org_name" /></label>
                 <label>Description <textarea name="description"></textarea></label>
+                <div class="form-group">
+                    <label for="address_address">Address</label>
+                    <input type="text" id="address-input" name="address_address" class="form-control map-input">
+                    <input type="hidden" name="address_latitude" id="address-latitude" value="0" />
+                    <input type="hidden" name="address_longitude" id="address-longitude" value="0" />
+                </div>
+                <div id="address-map-container" style="width:100%;height:400px; ">
+                    <div style="width: 100%; height: 100%" id="address-map"></div>
+                </div>
             </div>
 
             <div class="section"><span>2</span>Attachment Details</div>
@@ -183,12 +179,13 @@
                         <option value="WBL">Work Based Learning</option>
                     </select>
                 </label>
-                <label>Duration<input type="text" class="form-control js-daterangepicker" name="date_range"></label>
+                <label>Duration<input type="text" class="form-control js-daterangepicker" name="date"></label>
                 <label>Hours Per Week <input type="number" name="hours" /></label>
                 <label>Anticipated Activities<textarea name="activities"></textarea></label>
                 <label>Anticipated skills to be gained<textarea name="skills"></textarea></label>
             </div>
-
+            <input type="hidden" name="status" value="0">
+            <input type="hidden" name="student_id" value="{{Auth::user()->id}}">
             <div class="button-section">
                 <input type="submit" name="Sign Up" />
             </div>
@@ -197,53 +194,10 @@
 
     <script type="text/javascript">
         //date range
-        $('input[name="date_range"]').daterangepicker();
-
-
-        //country,city, county
-        $(document).ready(function() {
-            $('#country-dd').change(function(event) {
-                var idCountry = this.value;
-                $('#state-dd').html('');
-
-                $.ajax({
-                    url: "/api/fetch-state",
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        country_id: idCountry,
-                        _token: "{{ csrf_token() }}"
-                    },
-                    success: function(response) {
-                        $('#state-dd').html('<option value="">Select State</option>');
-                        $.each(response.states, function(index, val) {
-                            $('#state-dd').append('<option value="' + val.id + '"> ' + val.name + ' </option>')
-                        });
-                        $('#city-dd').html('<option value="">Select City</option>');
-                    }
-                })
-            });
-            $('#state-dd').change(function(event) {
-                var idState = this.value;
-                $('#city-dd').html('');
-                $.ajax({
-                    url: "/api/fetch-cities",
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        state_id: idState,
-                        _token: "{{ csrf_token() }}"
-                    },
-                    success: function(response) {
-                        $('#city-dd').html('<option value="">Select State</option>');
-                        $.each(response.cities, function(index, val) {
-                            $('#city-dd').append('<option value="' + val.id + '"> ' + val.name + ' </option>')
-                        });
-                    }
-                })
-            });
-        });
+        $('input[name="date"]').daterangepicker();
     </script>
+    
+    
 
 </body>
 
