@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ImportController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FileHandling;
 use App\Http\Controllers\GradeHandler;
 use App\Http\Controllers\SupervisorReg;
@@ -14,6 +15,8 @@ use App\Http\Controllers\SiteAuthController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DropDownController;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Spatie\GoogleCalendar\Event;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +32,13 @@ use Illuminate\Support\Facades\DB;
 Route::get('/', function () {
     return view('auth/register');
 });
-
+Route::get('dash', function () {
+    return view('dash');
+})->name('dash');
+Route::get('dash2', function () {
+    return view('dash2');
+})->name('dash2');
+Route::resource('booking',BookingController::class);
 
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
@@ -89,6 +98,18 @@ Route::get('lecturer_logbook', function(){
     $data=DB::table('logbook')->join('applications','applications.id','=','logbook.attachment_id')->select('applications.student_id','logbook.id as id','logbook.date')->get();
     return view('lecturer_logbook')->with('data',$data);
 })->name('lecturer_logbook');
+Route::get('student_logbook_view', function(){
+    $data=DB::table('logbook')->where('attachment_id','=',session('attachment_id'))->get();
+    return view('student_logbook_view')->with('data',$data);
+})->name('student_logbook_view');
+Route::post('comment', function(Request $request)
+{
+    $id = $request->input('id');
+    $comments = $request->input('comments');
+    DB::table('logbook')->where('id','=',$id)->update(['comments'=>$comments,'seen'=>1]);
+    return redirect()->route('lecturer_logbook');
+})->name('comment');
+
 
 Route::get('view_logbook_lec/{id}/{sname}',function($id,$sname){
     $data=DB::table('logbook')->where('id','=',$id)->get();
@@ -119,9 +140,17 @@ Route::get('student_chooser', function () {
     return view('student_dashboard2')->with('data', $data)->with('data2', $data2);
 })->name('student_chooser');
 
+Route::get('/Stud_View_Results', function () {
+    $data5 = DB::table('student_results')
+        ->join('assessments', 'student_results.exam_id', '=', 'assessments.exam_id')
+        ->where('student_id', '=', session('student_id'))
+        ->where('assessments.unit_code', '=', session('unit_id'))
+        ->select('student_results.value', 'assessments.maximum', 'assessments.weight', 'assessments.exam_name')->get();
+    return view('Lecturer_Student_Module.Student.view_result')->with('data5', $data5);
+})->name('Stud_View_Results');
 
 Route::get('update_results', function () {
-    $data = DB::table('assessments')->where('supervisor_id', '=', Auth::user()->id)->get();
+    $data = DB::table('assessments')->get();
     $data4 = DB::table('users')
         ->join('supervisor_allocations', 'supervisor_allocations.student_id', '=', 'users.id')
         ->select('users.id', 'users.name')->get();

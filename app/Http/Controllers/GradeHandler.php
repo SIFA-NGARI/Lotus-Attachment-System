@@ -24,23 +24,15 @@ class GradeHandler extends Controller
     {
         $AssessmentID = $request->input('assessment_id');
         session(['assessment_id' => $AssessmentID]);
-        $data = DB::table('assessments')->where('supervisor_id', '=', Auth::user()->id)->get();
+        $data = DB::table('assessments')->get();
         $data2 = DB::table('assessments')->where('assessment_id', '=', $AssessmentID)->get();
         $check = DB::table('student_results')->where('assessment_id', '=', session('assessment_id'))->get();
-        if (!$check->isEmpty()) {
+        
             $data4 = DB::table('users')
-                ->join('supervisor_allocations', 'supervisor_allocations.student_id', '=', 'users.id')
-                ->join('student_results', 'student_results.student_id', '=', 'users.id')
-                ->where('assessment_id', '=', session('assessment_id'))
-                ->select('users.id', 'users.name', 'student_results.value')->get();
+        ->join('supervisor_allocations', 'supervisor_allocations.student_id', '=', 'users.id')
+        ->select('users.id', 'users.name')->get();
             return view('supervisor_update_results')->with('data', $data)->with('data2', $data2)->with('data4', $data4);
-        } else {
-            $data4 = DB::table('users')
-                ->join('supervisor_allocations', 'supervisor_allocations.student_id', '=', 'users.id')
-                ->where('supervisor_allocations.supervisor_id', '=', Auth::user()->id)
-                ->select('users.id', 'users.name')->get();
-            return view('supervisor_update_results')->with('data', $data)->with('data2', $data2)->with('data4', $data4);
-        }
+        
     }
 
     public function updateStudentResults(Request $request)

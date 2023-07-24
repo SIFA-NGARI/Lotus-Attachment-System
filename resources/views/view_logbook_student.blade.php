@@ -1,30 +1,56 @@
-@extends('layouts.studentlayout2')
-@section('content')
-<!-- Content Wrapper. Contains page content -->
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Attachment Information</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            background-color: grey;
+            padding: 20px;
+        }
 
-<section class="content">
-    <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <p>{{session('type')}}</p>
+        .this {
+            padding: 0;
+            margin-left: 20px;
+            width: 30.5%;
+            min-width: 14rem;
+            height: 20rem;
+            border-radius: 0.3rem;
+            background-color: white;
+            color: black;
+        }
+    </style>
+    <title>Document</title>
+</head>
 
+<body>
+    @foreach($data as $data)
+
+    <div style=" display:flex ; flex-direction: row;">
+        <div class="this">
+        <h1 style="background-color: white; ">Objectives:</h1>
+            <p style="background-color: white;">{{$data->objectives}}</p>
+        </div>
+        <div class="this">
+        <h1 style="background-color: white; ">Tasks Achieved:</h1>
+            <p style="background-color: white;">{{$data->tasks}}</p>
+        </div>
+        <div class="this">
+        <h1 style="background-color: white; ">Lessons Learned:</h1>
+            <p style="background-color: white;">{{$data->lessons}}</p>
+        </div>
+        @if(1==@$data->seen)
+
+        <div class="this">
+        <h1 style="background-color: white; color:red">Feedback:</h1>
+            <p style="background-color: white;">{{$data->comments}}</p>
+        </div>
+        @endif
+      
     </div>
-</section>
-@endsection
+    @endforeach
+    <a href="{{route('student_logbook_view')}}"><button type="submit" style="margin-left:92%; background: rgb(56, 52, 52);  border: 0px solid #fff; margin-top: 10px;  width: max-content; font-size: 16px; font-weight: bold;  border-radius: 20px;  padding: 10px;  box-sizing: border-box; outline: none; color: white; cursor: pointer; transition: .4s; ">Back</button></a>
+</body>
+
+</html>

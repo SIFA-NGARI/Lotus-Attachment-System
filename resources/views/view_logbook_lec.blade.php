@@ -1,101 +1,49 @@
-@extends('layouts.supervisorlayout2')
-@section('content')
-<!-- Content Wrapper. Contains page content -->
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Logbook</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            background-color: grey;
+            padding: 20px;
+        }
 
-<section class="content ">
-    <div class="container-fluid ">
-        <div class="row">
+        .this {
+            padding: 0;
+            margin-left: 20px;
+            width: 30.5%;
+            min-width: 14rem;
+            height: 20rem;
+            border-radius: 0.3rem;
+            background-color: white;
+            color: black;
+        }
+    </style>
+    <title>Document</title>
+</head>
 
-            @foreach($data as $data)
-            <h1 style="font-size: 20px; color: #0967B5;">{{$sname}} Dates: {{$data->date}} </h1>
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">
-                        Objectives
-                    </h3>
-                </div>
-                <div class="card-body">
+<body>
+    @foreach($data as $data)
 
-                    <p>
-                        {{$data->objectives}}
-                    </p>
-                </div>
-            </div>
-        
-    <div class="card card-row card-primary">
-        <div class="card-header">
-            <h3 class="card-title">
-                Tasks
-            </h3>
+    <div style=" display:flex ; flex-direction: row;">
+        <div class="this">
+        <h1 style="background-color: white; ">Objectives:</h1>
+            <p style="background-color: white;">{{$data->objectives}}</p>
         </div>
-        <div class="card-body">
-            <div class="card card-primary card-outline">
-                <div class="card-body">
-                    <p>
-                        {{$data->tasks}}
-                    </p>
-                </div>
-            </div>
+        <div class="this">
+        <h1 style="background-color: white; ">Tasks Achieved:</h1>
+            <p style="background-color: white;">{{$data->tasks}}</p>
         </div>
-    </div>
-    <div class="card card-row card-primary">
-        <div class="card-header">
-            <h3 class="card-title">
-                Lessons Learnt
-            </h3>
+        <div class="this">
+        <h1 style="background-color: white; ">Lessons Learned:</h1>
+            <p style="background-color: white;">{{$data->lessons}}</p>
         </div>
-        <div class="card-body">
-            <div class="card card-primary card-outline">
-                <div class="card-body">
-                    <p>
-                        {{$data->lessons}}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
+      
     </div>
     @endforeach
-</section>
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Ekko Lightbox -->
-<script src="plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
-<!-- Filterizr-->
-<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-<!-- Page specific script -->
-<script>
-    $(function() {
+    <a href="{{route('lecturer_logbook')}}"><button type="submit" style="margin-left:92%; background: rgb(56, 52, 52);  border: 0px solid #fff; margin-top: 10px;  width: max-content; font-size: 16px; font-weight: bold;  border-radius: 20px;  padding: 10px;  box-sizing: border-box; outline: none; color: white; cursor: pointer; transition: .4s; ">Back</button></a>
+</body>
 
-    })
-</script>
-
-
-
-@endsection
+</html>

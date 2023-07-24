@@ -226,14 +226,9 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+                        
                         <li class="nav-item">
-                            <a href="{{route('student_view_attachments')}}" class="nav-link active">
-                                <i class="bi-briefcase nav-icon"></i>
-                                <p>Attachement information </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('report_dashboard')}}" class="nav-link">
+                            <a href="{{route('report_dashboard')}}" class="nav-link active">
                                 <i class="bi-briefcase nav-icon"></i>
                                 <p>Report </p>
                             </a>
@@ -245,7 +240,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('student_logbook')}}" class="nav-link">
+                            <a href="{{route('student_logbook_view')}}" class="nav-link">
                                 <i class="bi-paperclip nav-icon"></i>
                                 <p>View Logbook</p>
                             </a>
