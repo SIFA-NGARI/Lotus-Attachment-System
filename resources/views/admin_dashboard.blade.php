@@ -62,7 +62,7 @@
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3>53<sup style="font-size: 20px">%</sup></h3>
+                        <h3>53<sup style="font-size: 20px"></sup></h3>
 
                         <p>Students</p>
                     </div>
