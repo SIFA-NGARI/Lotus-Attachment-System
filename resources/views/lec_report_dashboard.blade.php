@@ -34,7 +34,6 @@
                                     <th>Student Name</th>
                                     <th>Date Submitted</th>
                                     <th>View Submission</th>
-                                    <th>Grade</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,7 +50,6 @@
                                     <td>{{$sname}}</td>
                                     <td>{{$data->date}}</td>
                                     <td><a href="{{route('viewAssignmentSubmission',$data->report_id)}}"><button>View</button></a></td>
-                                    <td><a href="{{route('gradeSubmission',$data->report_id)}}"><button>Grade</button></a></td>
                                 </tr>
                                 @endforeach
                             </tbody>

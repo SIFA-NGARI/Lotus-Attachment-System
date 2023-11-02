@@ -239,20 +239,9 @@
                                 <p>My Attachments</p>
                             </a>
                         </li>
+                       
                         <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="bi-journal-bookmark nav-icon"></i>
-                                <p>Logbook</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
-                                <i class="bi-pencil-square nav-icon"></i>
-                                <p>Report</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="{{route('dash2')}}" class="nav-link">
                                 <i class="bi-calendar3 nav-icon"></i>
                                 <p>
                                     Calendar
@@ -260,18 +249,10 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
-                                <i class="bi-map nav-icon"></i>
-                                <p>
-                                    Maps
-                                    <!--  <span class="right badge badge-danger">New</span>-->
-                                </p>
-                            </a>
-                        </li>
+                       
 
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="{{route('chatify')}}" class="nav-link">
                                 <i class="bi-chat-dots nav-icon"></i>
                                 <p>
                                     Chat

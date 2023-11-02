@@ -19,15 +19,15 @@
     <div class="main-content">
         <div class="nav">
             <ul class="snip1168">
+            <li> <a href="{{route('dashboard')}}">
+                        <button> <i class="las la-angle-left"></i></button>
+                    </a></li>
                 <li class="current"><a href="#" data-hover="Update Results">Update Results</a></li>
                 <li><a href="{{route('view_results')}}" data-hover="View Results">View Results</a></li>
             </ul>
         </div>
 
-        <a href="#new-exam">
-            <button id="create-exam">+ CREATE ASSESSMENT</button>
-        </a>
-
+        
         <div class="overlay" id="new-exam">
             <div class="wrapper">
 

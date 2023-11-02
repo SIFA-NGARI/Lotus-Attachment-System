@@ -259,7 +259,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="{{route('update_results')}}" class="nav-link">
                                 <i class="bi-map nav-icon"></i>
                                 <p>
                                     Grades

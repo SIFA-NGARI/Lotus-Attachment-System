@@ -93,6 +93,9 @@
                     </div>
                     <!-- /.row -->
                     <!-- Main row -->
+<<<<<<< HEAD
+                    
+=======
                     <div class="row">
                         <!-- Left col -->
                         <section class="col-lg-7 connectedSortable">
@@ -512,6 +515,7 @@
                         <!-- right col -->
                     </div>
                     <!-- /.row (main row) -->
+>>>>>>> 3d1fb806806c765413eea9b0a08fc375bdd1cdc5
                 </div><!-- /.container-fluid -->
             </section>
             <!-- /.content -->

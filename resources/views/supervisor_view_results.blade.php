@@ -20,6 +20,9 @@
     <div class="main-content">
         <div class="nav">
             <ul class="snip1168">
+            <li> <a href="{{route('dashboard')}}">
+                        <button> <i class="las la-angle-left"></i></button>
+                    </a></li>
                 <li><a href="{{route('update_results')}}" data-hover="Update Results">Update Results</a></li>
                 <li class="current"><a href="#" data-hover="View Results">View Results</a></li>
             </ul>
